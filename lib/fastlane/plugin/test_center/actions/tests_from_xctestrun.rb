@@ -18,7 +18,7 @@ module Fastlane
           xctest_path = xctest_bundle_path(xctestrun_rootpath, xctestrun_config)
           test_identifiers = XCTestList.tests(xctest_path)
           UI.verbose("Found the following tests: #{test_identifiers.join("\n\t")}")
-
+          UI.verbose("Found the following keys: #{xctestrun_config.keys.join("\n\t")}")
           if xctestrun_config.key?('SkipTestIdentifiers')
             test_identifiers = subtract_skipped_tests_from_test_identifiers(
               test_identifiers,
