@@ -25,6 +25,9 @@ module Fastlane
               xctestrun_config['SkipTestIdentifiers']
             )
           end
+          if xctestrun_config.key?('OnlyTestIdentifiers')
+            test_identifiers = xctestrun_config['OnlyTestIdentifiers']
+          end
           if test_identifiers.empty? && !invocation_based_tests
             UI.error("No tests found in '#{xctest_path}'!")
             UI.important("Is the Build Setting, `ENABLE_TESTABILITY` enabled for the test target #{testable_name}?")
