@@ -64,7 +64,8 @@ module Fastlane
           end
         end
         if scan_options[:result_bundle]
-          report_files += Dir.glob("#{scan_options[:output_directory]}/**/*.test_result").map do |relative_test_result_bundle_filepath|
+          random_num = rand(1..1000000)
+          report_files += Dir.glob("#{scan_options[:output_directory]}/**/*.test_result_#{random_num}").map do |relative_test_result_bundle_filepath|
             File.absolute_path(relative_test_result_bundle_filepath)
           end
         end
